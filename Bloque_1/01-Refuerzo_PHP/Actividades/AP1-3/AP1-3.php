@@ -14,12 +14,14 @@ if ($value === "primero" ||  $value === "tercero" || $value === "quinto") {
     $impar = true;
     $par = false;
     $suma = $suma + $key;
-
+    echo "$suma <br>";
 } else if ($value === "segundo" || $value === "cuarto" || $value === "sexto"){
     echo "Estas en una posicion par <br>";
     $impar = false;
     $par = true;
     $suma = $suma + $key;
+    echo "$suma <br>";
+
 }
 if ($suma < 5){
     echo "El valor es menor que 5 <br>";
