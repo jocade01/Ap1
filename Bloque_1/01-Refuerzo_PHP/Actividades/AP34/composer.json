@@ -1,0 +1,14 @@
+{
+    "name": "dwes/ap34",
+    "autoload": {
+        "psr-4": {
+            "AP34\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jocade"
+        }
+    ],
+    "require": {}
+}
