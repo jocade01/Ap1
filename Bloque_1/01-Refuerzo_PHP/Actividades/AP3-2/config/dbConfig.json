@@ -1,0 +1,11 @@
+
+{
+  "host"
+ : "mariadb-server",
+  "username"
+ : "root",
+  "password"
+ : "root",
+  "dbname"
+ : "todolist"
+  }

@@ -1,0 +1,38 @@
+{
+  "/": {
+    "controller": "MainController",
+    "action": "main"
+  },
+  "/list": {
+    "controller": "TaskController",
+    "action": "list"
+  },
+  "/task": {
+    "controller": "TaskController",
+    "action": "crud"
+  },
+  "/clientes": {
+    "controller": "ClientController",
+    "action": "listClientes"
+  },
+  "/cliente": {
+    "controller": "ClientController",
+    "action": "crud"
+  },
+  "/pedidos": {
+    "controller": "DeliveryController",
+    "action": "listPedidos"
+  },
+  "/pedido": {
+    "controller": "DeliveryController",
+    "action": "crud"
+  },
+  "/productos": {
+    "controller": "ProductController",
+    "action": "listProductos"
+  },
+  "/producto": {
+    "controller": "ProductController",
+    "action": "crud"
+  }
+}

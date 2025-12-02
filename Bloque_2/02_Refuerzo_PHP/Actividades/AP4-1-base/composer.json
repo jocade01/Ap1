@@ -1,0 +1,19 @@
+{
+    "name": "vendor/name",
+    "autoload": {
+        "psr-4": {
+            "AP41\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jose"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+        "doctrine/orm": "^3",
+        "doctrine/dbal": "^4",
+        "symfony/cache": "^7"
+    }
+}

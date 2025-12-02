@@ -1,0 +1,38 @@
+services:
+  server-php:
+    container_name: servidor_php
+    build:
+      dockerfile: Dockerfile
+      context: .
+    restart: unless-stopped
+    stdin_open: true
+    links:
+      - mariadb-server
+    ports:
+      - "8001:8000"
+    volumes:
+      - ../:/var/www/html:delegated
+      - /var/www/html/Bloque_3/AP71/vendor
+      - /var/www/html/Bloque_3/AP71/var
+    networks:
+      - project_network
+
+  mariadb-server:
+    container_name: servidor_db
+    image: mariadb
+    ports:
+      - "3307:3306"
+    restart: unless-stopped
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_mysql:/var/lib/mysql
+    networks:
+      - project_network
+
+volumes:
+  db_mysql:
+
+networks:
+  project_network:
