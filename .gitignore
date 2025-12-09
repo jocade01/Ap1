@@ -1,0 +1,6 @@
+.idea
+.db_mysql
+.DS_Store
+.claude
+**/vendor/
+**/var/cache/

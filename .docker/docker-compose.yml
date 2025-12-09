@@ -16,6 +16,9 @@ services:
       - /var/www/html/Bloque_3/AP71/var
       - /var/www/html/Bloque_3/AP72/vendor
       - /var/www/html/Bloque_3/AP72/var
+      - /var/www/html/Bloque_3/AP70/var
+      - /var/www/html/Bloque_3/AP70/var
+
     networks:
       - project_network
 
