@@ -45,8 +45,10 @@ final class ModuleController extends AbstractController
     #[Route('/{id}', name: 'app_module_show', methods: ['GET'])]
     public function show(Module $module): Response
     {
+        $students = count($module->getStudents());
         return $this->render('module/show.html.twig', [
             'module' => $module,
+            'students' => $students
         ]);
     }
 
@@ -71,7 +73,7 @@ final class ModuleController extends AbstractController
     #[Route('/{id}', name: 'app_module_delete', methods: ['POST'])]
     public function delete(Request $request, Module $module, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$module->getId(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $module->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($module);
             $entityManager->flush();
         }

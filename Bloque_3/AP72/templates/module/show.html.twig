@@ -4,21 +4,21 @@
 
 {% block body %}
     <h1>Module</h1>
-
+    <p>Hay {{ students|length }} en el módulo {{ module.name }}</p>
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ module.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ module.name }}</td>
-            </tr>
-            <tr>
-                <th>Credits</th>
-                <td>{{ module.credits }}</td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ module.id }}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ module.name }}</td>
+        </tr>
+        <tr>
+            <th>Credits</th>
+            <td>{{ module.credits }}</td>
+        </tr>
         </tbody>
     </table>
 

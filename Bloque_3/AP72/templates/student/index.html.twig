@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1>Student index</h1>
-    <h2><p>Hay {{ students|length }} alumnos en el modulo {{ moduloNombre }}</p></h2>
+    <h2><p>Hay {{ totalStudents|length }} alumnos en el modulo {{ moduloNombre }}</p></h2>
     <table class="table">
         <thead>
         <tr>
@@ -12,7 +12,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Age</th>
-            <th>actions</th>
+            <th>Module</th>
         </tr>
         </thead>
         <tbody>
@@ -22,6 +22,7 @@
                 <td>{{ student.name }}</td>
                 <td>{{ student.email }}</td>
                 <td>{{ student.age }}</td>
+                <td>{{ student.module.id }}</td>
                 <td>
                     <a href="{{ path('app_student_show', {'id': student.id}) }}">show</a>
                     <a href="{{ path('app_student_edit', {'id': student.id}) }}">edit</a>

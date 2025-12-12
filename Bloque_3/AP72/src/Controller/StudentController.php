@@ -4,8 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Student;
 use App\Form\StudentType;
-use App\Repository\ModuleRepository;
 use App\Repository\StudentRepository;
+use App\Repository\ModuleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,35 +16,34 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/student')]
 final class StudentController extends AbstractController
 {
-    #[Route(name: 'app_student_index', methods: ['GET'])]
-    public function index(StudentRepository $studentRepository, request $request, ModuleRepository $moduleRepository): Response
+    #[Route('/', name: 'app_student_index', methods: ['GET'])]
+    public function index(StudentRepository $studentRepository, Request $request, ModuleRepository $moduleRepository): Response
     {
-        // Leer el filtro si existe (?module=ID)
-        $moduleId = $request->query->get('module');
 
+
+        $students = $studentRepository->findAll();
+        $modules = $moduleRepository->findAll();
+        // Leer el filtro si existe (?module=ID)
+        $moduleId = $request->query->get(key: 'module');
+        $moduleName = 'todos los modulos';
+        $totalStudents = count($students);
         if ($moduleId) {
             // Buscar módulo
-            $module = $moduleRepository->find($moduleId);
-
+            $module = $modules->find($moduleId);
+            $moduleName = $module->getName();
+            $students = $studentRepository->findBy(['Module' => $moduleId]);
+            $totalStudents = count($students);
             // Si el módulo existe → filtrar estudiantes
-            if ($module) {
-                $students = $studentRepository->findBy(['module' => $module]);
-                $moduloNombre = $module->getName();
-            } else {
-                // Si no existe el módulo → mostrar todos
-                $students = $studentRepository->findAll();
-                $moduloNombre = 'todos los módulos';
-            }
-
-        } else {
-            // Sin filtro → mostrar todos
-            $students = $studentRepository->findAll();
-            $moduloNombre = 'todos los módulos';
+        }
+        if (!empty($students)) {
+            $moduleName = $students[0]->getModule()->getName();
         }
 
         return $this->render('student/index.html.twig', [
-            'students' => $students,
-            'moduloNombre' => $moduloNombre,
+            'totalStudents' => $totalStudents,
+            'moduloNombre' => $moduleName,
+            'students' => $studentRepository->findAll(),
+
         ]);
     }
 
