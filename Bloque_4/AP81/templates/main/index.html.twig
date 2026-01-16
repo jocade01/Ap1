@@ -18,14 +18,21 @@
     </style>
 
     <div class="example-wrapper">
-        <h1>Hello {{ controller_name }} ✅</h1>
-
+        <h1>Hello {{ controller_name }}! ✅</h1>
+        {% if not app.user %}
+            <a href="/register">Registrarse</a>
+            <a href="/login">Iniciar Sesion</a>
+        {% else %}
+            <p>Bienvenido {{ app.user.email }}</p>
+            <a href="/user">Usuarios</a>
+            <a href="/logout">Cerrar sesion</a>
+        {% endif %}
         This friendly message is coming from:
         <ul>
             <li>Your controller at <code>C:/Users/jocade01/Downloads/Nueva carpeta/Docker
-                    DWES/Bloque_3/AP72/src/Controller/MainController.php</code></li>
+                    DWES/Bloque_4/AP80/src/Controller/MainController.php</code></li>
             <li>Your template at <code>C:/Users/jocade01/Downloads/Nueva carpeta/Docker
-                    DWES/Bloque_3/AP72/templates/main/index.html.twig</code></li>
+                    DWES/Bloque_4/AP80/templates/main/index.html.twig</code></li>
         </ul>
     </div>
 {% endblock %}
