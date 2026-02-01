@@ -1,0 +1,27 @@
+meta {
+  name: Crear Jugador
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://127.0.0.1:8001/AP91/player
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Jose Luis",
+    "surname": "Gayá",
+    "age": 30,
+    "currentTeam": "Valencia C.F",
+    "goalsScored": 7,
+    "cardsReceived": 20,
+    "birthDate": "1995-05-25"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
