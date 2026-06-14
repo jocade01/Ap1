@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Silla index{% endblock %}
+
+{% block body %}
+    <a href="../">Return</a>
+    <h1>Silla index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Madera</th>
+                <th>Metal</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for silla in sillas %}
+            <tr>
+                <td>{{ silla.id }}</td>
+                <td>{{ silla.madera }}</td>
+                <td>{{ silla.metal }}</td>
+                <td>
+                    <a href="{{ path('app_silla_show', {'id': silla.id}) }}">show</a>
+                    <a href="{{ path('app_silla_edit', {'id': silla.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_silla_new') }}">Create new</a>
+{% endblock %}

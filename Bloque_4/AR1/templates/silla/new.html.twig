@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Silla{% endblock %}
+
+{% block body %}
+    <h1>Create new Silla</h1>
+
+    {{ include('silla/_form.html.twig') }}
+
+    <a href="{{ path('app_silla_index') }}">back to list</a>
+{% endblock %}

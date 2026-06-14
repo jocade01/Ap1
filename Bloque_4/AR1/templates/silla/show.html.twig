@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Silla{% endblock %}
+
+{% block body %}
+    <h1>Silla</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ silla.id }}</td>
+            </tr>
+            <tr>
+                <th>Madera</th>
+                <td>{{ silla.madera }}</td>
+            </tr>
+            <tr>
+                <th>Metal</th>
+                <td>{{ silla.metal }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_silla_index') }}">back to list</a>
+
+    <a href="{{ path('app_silla_edit', {'id': silla.id}) }}">edit</a>
+
+    {{ include('silla/_delete_form.html.twig') }}
+{% endblock %}

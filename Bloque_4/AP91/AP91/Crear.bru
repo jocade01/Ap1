@@ -1,0 +1,28 @@
+meta {
+  name: Crear
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://127.0.0.1:8000/api/players
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "name": "Koper",
+      "surname": "Garcia",
+      "age": 22,
+      "currentTeam": "Valencia CF",
+      "goalsScored": 10,
+      "cardsReceived": 2,
+      "birthDate": "2004-05-10"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
