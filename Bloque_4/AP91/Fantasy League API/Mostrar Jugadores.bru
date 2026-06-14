@@ -1,0 +1,15 @@
+meta {
+  name: Mostrar Jugadores
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://127.0.0.1:8001/AP91/player
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

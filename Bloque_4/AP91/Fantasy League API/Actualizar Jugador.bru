@@ -1,0 +1,27 @@
+meta {
+  name: Actualizar Jugador
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://127.0.0.1:8001/AP91/player/1
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Hugo",
+    "surname": "Duro",
+    "age": 26,
+    "currentTeam": "Valencia C.F",
+    "goalsScored": 43,
+    "cardsReceived": 7,
+    "birthDate": "1999-11-10"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
